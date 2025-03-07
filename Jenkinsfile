@@ -7,6 +7,13 @@ pipeline {
                 sh 'cat file.txt'
             }
         }
+         stage(ecrLogin){
+            steps{
+                sh 'docker build -t webapp .'
+                sh 'docker images'
+                
+            }
+        }
     }
     
 }
