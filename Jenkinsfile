@@ -37,7 +37,7 @@ pipeline {
         }
         stage('CodeTest'){
            steps{ 
-            sh 'docker run -itd --name web -p 80:81 rev-pipeline' 
+            sh 'docker run -itd --name web1 -p 80:81 rev-pipeline' 
             sh 'docker ps'
            }
         }
