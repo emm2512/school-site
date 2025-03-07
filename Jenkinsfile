@@ -35,6 +35,9 @@ pipeline {
                 
             }
         }
+        stage('CodeTest'){
+            sh 'docker run -itd --name web -p 81:80 060795940509.dkr.ecr.us-east-1.amazonaws.com/' #we are opening p81 to listen on httpd(80)
+        }
     }
     
 }
