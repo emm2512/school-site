@@ -17,6 +17,7 @@ pipeline {
         stage('Build'){
             steps{
                 sh 'docker build -t rev-pipeline .'
+                sh 'docker build -t newversion .'
                 sh 'docker images'
                 
             }
@@ -24,12 +25,13 @@ pipeline {
         stage('DockerTag'){
             steps{
                 sh 'docker tag rev-pipeline:latest 060795940509.dkr.ecr.us-east-1.amazonaws.com/rev-pipeline:latest'
-                
+                sh 'docker tag rev-pipeline:latest 060795940509.dkr.ecr.us-east-1.amazonaws.com/rev-pipeline:v1.$BUILD_NUMBER'
             }
         }
         stage('DockerPush'){
             steps{
                 sh 'docker push 060795940509.dkr.ecr.us-east-1.amazonaws.com/rev-pipeline:latest'
+                sh 'docker push 060795940509.dkr.ecr.us-east-1.amazonaws.com/rev-pipeline:v1.$BUILD_NUMBER'
                 
             }
         }
