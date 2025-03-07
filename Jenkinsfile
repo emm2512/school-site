@@ -37,7 +37,7 @@ pipeline {
         }
         stage('CodeTest'){
            steps{ 
-            sh 'docker run -itd --name web -p rev-pipeline' #we are opening p81 to listen on httpd(80)
+            sh 'docker run -itd --name web -p rev-pipeline' 
             sh 'docker ps'
            }
         }
