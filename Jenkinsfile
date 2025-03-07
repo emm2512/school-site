@@ -37,8 +37,9 @@ pipeline {
         }
         stage('CodeTest'){
            steps{ 
-            sh 'docker rm -f web1 web'
-            sh 'docker run -itd --name web3 -p 80:80 newversion' 
+            sh 'docker stop web1'
+            sh 'docker rm -f web1'
+            sh 'docker run -itd --name web4 -p 80:80 newversion' 
             sh 'docker ps'
            }
         }
