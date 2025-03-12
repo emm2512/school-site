@@ -24,7 +24,7 @@ jobs:
                 java-version: '17'
 
             - name: Unit Test
-              run: mvn test |
-                mvn compile
+              run: mvn test 
+                
             - name: Build package  
               run: mvn package
